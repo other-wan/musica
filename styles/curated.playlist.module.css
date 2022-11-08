@@ -1,0 +1,19 @@
+.curated__card {
+  background: var(--primary);
+  min-height: 60vh;
+  padding: 32px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.curated__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.curated__details {
+  display: flex;
+}

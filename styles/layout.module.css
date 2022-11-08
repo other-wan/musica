@@ -1,0 +1,26 @@
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "aside aside aside aside"
+    "nav main main main"
+    "nav main main main"
+    "nav main main main"
+    "nav main main main"
+    "nav main main main";
+  grid-template-rows: 84px 1fr;
+  grid-template-columns: 0 1fr;
+}
+
+.main {
+  grid-area: main;
+  width: 90%;
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 52px 1fr;
+    column-gap: 24px;
+  }
+}
