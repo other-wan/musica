@@ -31,12 +31,20 @@ const Navbar: FunctionComponent<INavbar> = ({ navToggle, setNavToggle }) => {
     };
 
     document.addEventListener("click", handleMenuClose, true);
-    document.body.classList.toggle("body__content");
 
     return () => {
       document.removeEventListener("click", handleMenuClose, true);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navToggle]);
+
+  useEffect(() => {
+    if (!navToggle) {
+      document.body.classList.remove("body__content");
+      return;
+    }
+
+    document.body.classList.toggle("body__content");
   }, [navToggle]);
 
   return (
