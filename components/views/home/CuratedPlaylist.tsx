@@ -2,11 +2,11 @@ import Heart from "components/icons/Heart";
 import ListManager from "components/ListManage";
 import Image from "next/image";
 import { Persons } from "providers/personList";
-import CuratedStyles from "styles/curated.playlist.module.css";
+import CuratedStyles from "styles/curatedPlaylist.module.css";
 
 const CuratedPlaylist = () => {
   return (
-    <section id="curatedPlaylist">
+    <div id="curatedPlaylist">
       <div className={CuratedStyles.curated__card}>
         <h3 className="text__xxsmReg">Curated playlist</h3>
 
@@ -36,7 +36,7 @@ const CuratedPlaylist = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

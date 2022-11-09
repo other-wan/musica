@@ -3,12 +3,14 @@
     COLORS
   **/
   --primary: hsl(178, 24%, 71%);
+  --primary-alt: hsla(193, 33%, 53%, 1);
   --secondary: hsl(42, 94%, 69%);
   --dark: hsl(200, 9%, 13%);
   --dark-alt: hsl(192, 9%, 11%);
   --dark-alpha: hsla(200, 9%, 13%, 0.8);
   --light: hsl(56, 32%, 91%);
   --nav-text: hsla(56, 32%, 91%, 0.25);
+  --text-alpha: hsla(0, 0%, 100%, 0.5);
 
   /**
     TYPOGRAPHY
@@ -209,4 +211,15 @@ input[type="search"]::-webkit-search-results-decoration {
   font-size: var(--fs-xxxsm);
   font-weight: var(--fw-400);
   line-height: var(--lh-xxxsm);
+}
+
+/**
+  RE-USEABLE STYLES
+**/
+.section {
+  padding-block: 0 60px;
+}
+
+.section .header {
+  margin-block: 0 16px;
 }
