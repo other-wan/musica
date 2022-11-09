@@ -16,4 +16,44 @@
 
 .curated__details {
   display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.curated__personsList {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  max-width: 108.9px;
+}
+
+.curated__personsItem img {
+  border-radius: 50%;
+  box-shadow: -3.4000000953674316px 0px 3.4000000953674316px 0px
+    hsla(0, 0%, 0%, 0.38);
+}
+
+.curated__personsItem:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.curated__personsItem:nth-child(2) {
+  grid-area: 1 / 4 / 2 / 9;
+}
+
+.curated__personsItem:nth-child(3) {
+  grid-area: 1 / 7 / 2 / 12;
+}
+
+.curated__personsItem:nth-child(4) {
+  grid-area: 1 / 10 / 2 / 15;
+}
+
+.curated__personsItem:nth-child(5) {
+  grid-area: 1 / 13 / 2 / 18;
+}
+
+.curated__likes {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
 }
