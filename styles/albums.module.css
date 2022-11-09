@@ -1,0 +1,18 @@
+.newRelease {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  column-gap: 17px;
+  -webkit-column-gap: 17px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.newRelease::-webkit-scrollbar {
+  display: none;
+}
+
+.newRelease {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

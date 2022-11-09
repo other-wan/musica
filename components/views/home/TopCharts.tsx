@@ -1,5 +1,5 @@
-import TopChartStyles from "styles/topChart.module.css";
-import TopChartCard from "./TopchartCard";
+import TopChartStyles from "styles/topCharts.module.css";
+import TopChartCard from "../TopchartCard";
 
 const TopCharts = () => {
   return (

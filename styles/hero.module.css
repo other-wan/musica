@@ -1,0 +1,88 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+}
+
+.curatedCard {
+  background: var(--primary-alt);
+  min-height: 60vh;
+  padding: 32px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.curatedContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.curatedContent h2 {
+  margin-block: 0 6px;
+}
+
+.curatedDetails {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.personsList {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  max-width: 108.9px;
+}
+
+.personsItem img {
+  border-radius: 50%;
+  box-shadow: -3.4000000953674316px 0px 3.4000000953674316px 0px
+    hsla(0, 0%, 0%, 0.38);
+}
+
+.personsItem:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.personsItem:nth-child(2) {
+  grid-area: 1 / 4 / 2 / 9;
+}
+
+.personsItem:nth-child(3) {
+  grid-area: 1 / 7 / 2 / 12;
+}
+
+.personsItem:nth-child(4) {
+  grid-area: 1 / 10 / 2 / 15;
+}
+
+.personsItem:nth-child(5) {
+  grid-area: 1 / 13 / 2 / 18;
+}
+
+.curatedLikes {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.topChart {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  column-gap: 17px;
+  -webkit-column-gap: 17px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.topChart::-webkit-scrollbar {
+  display: none;
+}
+
+.topChart {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
