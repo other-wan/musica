@@ -3,17 +3,19 @@ import ListManager from "components/ListManage";
 import Image from "next/image";
 import { Persons } from "providers/personList";
 import TopChartCard from "../TopchartCard";
-import HeroStyles from "hero.module.css";
+import HeroStyles from "styles/hero.module.css";
+import CuratedImage from "assets/curated_image.png";
+import { relative } from "path";
 
 const Hero = () => {
   return (
     <div className={HeroStyles.hero}>
-      <div className={HeroStyles.curatedCard}>
-        <h3 className="text__xxsmReg">Curated playlist</h3>
-
+      <div className={HeroStyles.curatedPlaylist}>
         <div className={HeroStyles.curatedContent}>
-          <article className="curated__content">
-            <h2 className="text__xxlgBold">R & B Hits</h2>
+          <h2 className="text__xxsmReg">Curated playlist</h2>
+
+          <article className={HeroStyles.curatedDesc}>
+            <h3 className="text__xxlgBold">R & B Hits</h3>
             <p className="text__xsmReg">
               All mine, Lie again, Petty call me everyday, Out of time, No love,
               Bad habit, and so much more
@@ -23,7 +25,12 @@ const Hero = () => {
             <ListManager
               data={Persons}
               renderItem={(item) => (
-                <Image src={item.src} alt={item.alt} width="34" height="34" />
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
               )}
               classNames={{
                 list: HeroStyles.personsList,
@@ -36,13 +43,32 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        <div
+          className={HeroStyles.curatedImageContainer}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Image
+            src={CuratedImage}
+            alt="Playlist Image"
+            fill={true}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </div>
-      <div className={TopChartStyles.topChart}>
-        <TopChartCard />
-        <TopChartCard />
-        <TopChartCard />
-        <TopChartCard />
-        <TopChartCard />
+      <div className={HeroStyles.topChart}>
+        <h2 className="text__mdBold header">Top charts</h2>
+        <div className={HeroStyles.topChartList}>
+          <TopChartCard />
+          <TopChartCard />
+          <TopChartCard />
+          <TopChartCard />
+          <TopChartCard />
+          <TopChartCard />
+        </div>
       </div>
     </div>
   );

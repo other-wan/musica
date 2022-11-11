@@ -1,14 +1,13 @@
 .card {
+  width: 323px;
+  min-width: 300px;
   scroll-snap-align: start;
-  width: 80vw;
-  min-width: 80vw;
-  max-width: 323px;
   padding: 15px 14px 23px 14px;
   background: var(--dark-alt);
   border-radius: 20px;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .imgContainer {
@@ -36,7 +35,41 @@
 }
 
 .iconContainer {
+  width: 40.5px;
+  height: 40.5px;
   padding: 12.25px 11.25px 6.25px 11.25px;
   border: 1px solid hsla(0, 0%, 100%, 0.11);
   border-radius: 50%;
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    width: 100%;
+    max-width: 417px;
+    min-width: 320px;
+    padding: 16px;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+  }
+
+  .cardDetails h3 {
+    margin-block: 0 4px;
+  }
+
+  .cardDetails span {
+    margin-block: 0 6px;
+  }
+
+  .cardDetails p {
+    font-size: var(--fs-xxsm) !important;
+  }
+
+  .imgContainer {
+    width: 63px;
+    height: 63px;
+    margin-block: 0;
+  }
 }

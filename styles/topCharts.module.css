@@ -1,7 +1,7 @@
 .topChart {
   display: flex;
-  overflow-x: auto;
   align-items: center;
+  overflow-x: auto;
   column-gap: 17px;
   -webkit-column-gap: 17px;
   scroll-snap-type: x mandatory;
@@ -15,4 +15,10 @@
 .topChart {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .topChart {
+    flex-direction: column;
+  }
 }

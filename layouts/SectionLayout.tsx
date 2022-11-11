@@ -10,7 +10,7 @@ const SectionLayout: FunctionComponent<ISectionLayout> = ({
   content,
 }) => {
   return (
-    <section className="section">
+    <section className={"section"}>
       {title && <h2 className="text__mdBold header">{title}</h2>}
       {content}
     </section>

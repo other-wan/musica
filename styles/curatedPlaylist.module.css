@@ -1,6 +1,9 @@
-.curated__card {
+.curatedCard {
+  min-width: 320px;
   background: var(--primary-alt);
-  min-height: 60vh;
+  height: 60vh;
+  min-height: 40vh;
+  max-height: 503px;
   padding: 32px;
   border-radius: 20px;
   display: flex;
@@ -8,56 +11,61 @@
   justify-content: space-between;
 }
 
-.curated__content {
+.curatedContent {
   display: flex;
   flex-direction: column;
   row-gap: 40px;
+  max-width: 276px;
 }
 
-.curated__content h2 {
+.curatedTextContainer h2 {
   margin-block: 0 6px;
 }
 
-.curated__details {
+.curatedDetails {
   display: flex;
   align-items: center;
   column-gap: 30px;
 }
 
-.curated__personsList {
+.curatedPersonsList {
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   max-width: 108.9px;
 }
 
-.curated__personsItem img {
+.curatedPersonsItem img {
   border-radius: 50%;
   box-shadow: -3.4000000953674316px 0px 3.4000000953674316px 0px
     hsla(0, 0%, 0%, 0.38);
 }
 
-.curated__personsItem:nth-child(1) {
+.curatedPersonsItem:nth-child(1) {
   grid-area: 1 / 1 / 2 / 5;
 }
 
-.curated__personsItem:nth-child(2) {
+.curatedPersonsItem:nth-child(2) {
   grid-area: 1 / 4 / 2 / 9;
 }
 
-.curated__personsItem:nth-child(3) {
+.curatedPersonsItem:nth-child(3) {
   grid-area: 1 / 7 / 2 / 12;
 }
 
-.curated__personsItem:nth-child(4) {
+.curatedPersonsItem:nth-child(4) {
   grid-area: 1 / 10 / 2 / 15;
 }
 
-.curated__personsItem:nth-child(5) {
+.curatedPersonsItem:nth-child(5) {
   grid-area: 1 / 13 / 2 / 18;
 }
 
-.curated__likes {
+.curatedLikes {
   display: flex;
   align-items: center;
   column-gap: 16px;
+}
+
+.curatedLikes span {
+  white-space: nowrap;
 }
