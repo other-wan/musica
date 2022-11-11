@@ -1,6 +1,7 @@
 .card {
   width: 323px;
   min-width: 300px;
+  max-width: 100%;
   scroll-snap-align: start;
   padding: 15px 14px 23px 14px;
   background: var(--dark-alt);
@@ -8,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  cursor: pointer;
 }
 
 .imgContainer {

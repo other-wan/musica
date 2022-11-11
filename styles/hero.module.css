@@ -112,6 +112,7 @@
 
 @media screen and (min-width: 768px) {
   .curatedPlaylist {
+    min-height: 40vh;
     background: var(--primary-alt) url("/background_desktop.svg") no-repeat top
       right;
     background-size: 100% 100%;
@@ -122,6 +123,18 @@
     overflow: hidden;
   }
 
+  .curatedContent {
+    height: 40vh;
+  }
+
+  .curatedDesc {
+    margin-block: 0;
+  }
+
+  .curatedDetails {
+    flex-wrap: nowrap;
+  }
+
   .curatedImageContainer {
     display: block;
   }
@@ -129,6 +142,7 @@
 
 @media screen and (min-width: 1024px) {
   .hero {
+    height: 60vh;
     max-height: 373px;
     flex-direction: row;
     gap: 20px;

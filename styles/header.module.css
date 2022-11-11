@@ -2,6 +2,7 @@
   grid-area: aside;
   padding: 20px 0;
   position: fixed;
+  z-index: 1000;
   width: 100%;
   backdrop-filter: blur(10px);
   background: var(--dark-alpha);

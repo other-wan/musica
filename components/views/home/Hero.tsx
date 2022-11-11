@@ -29,6 +29,7 @@ const Hero = () => {
                   src={item.src}
                   alt={item.alt}
                   fill
+                  sizes="(max-width: 1024px) 34px, 20px"
                   style={{ objectFit: "cover" }}
                 />
               )}
@@ -54,8 +55,9 @@ const Hero = () => {
           <Image
             src={CuratedImage}
             alt="Playlist Image"
-            fill={true}
-            style={{ objectFit: "cover" }}
+            fill
+            sizes="(max-width: 1024px) 100%, 100%"
+            style={{ objectFit: "cover", zIndex: "1" }}
           />
         </div>
       </div>
