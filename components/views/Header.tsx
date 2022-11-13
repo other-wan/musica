@@ -12,7 +12,7 @@ interface IHeader {
 
 const Header: FunctionComponent<IHeader> = ({ handleNavToggle }) => {
   return (
-    <header className={HeaderStyles.header}>
+    <header id="header" className={HeaderStyles.header}>
       <div className={HeaderStyles.header__container}>
         <button
           style={{ position: "relative" }}

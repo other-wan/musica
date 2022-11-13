@@ -1,0 +1,34 @@
+.chartHero {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.chartBackground {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top left;
+}
+
+.chartHeader {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.chartImageContainer {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.chartDesc h3 {
+  color: hsla(178, 24%, 71%, 1);
+}
+
+.chartDesc p {
+  color: hsla(56, 32%, 91%, 1);
+  margin-block: 8px 0px;
+}
