@@ -1,0 +1,51 @@
+.playlistHero {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.playlistBackground {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.playlistHeader {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.playlistImageContainer {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.playlistDesc {
+  padding-block: 0 25px;
+}
+
+.playlistDesc h3 {
+  color: hsla(178, 24%, 71%, 1);
+}
+
+.playlistDesc p {
+  color: hsla(56, 32%, 91%, 1);
+  margin-block: 8px 0px;
+}
+
+.ActionButtons {
+  display: flex;
+  align-items: center;
+  column-gap: 11px;
+  margin-block: 0 25px;
+}
+
+.songs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}

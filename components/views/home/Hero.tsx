@@ -1,78 +1,97 @@
 import Heart from "components/icons/Heart";
-import ListManager from "components/ListManage";
+import ListManager from "components/ListManager";
 import Image from "next/image";
 import { Persons } from "providers/personList";
-import TopChartCard from "../TopchartCard";
+import PlaylistCard from "../PlaylistCard";
 import HeroStyles from "styles/hero.module.css";
 import CuratedImage from "assets/curated_image.png";
-import { relative } from "path";
+import SectionLayout from "layouts/SectionLayout";
+import { topCharts } from "providers/playlistProvider";
 
 const Hero = () => {
   return (
-    <div className={HeroStyles.hero}>
-      <div className={HeroStyles.curatedPlaylist}>
-        <div className={HeroStyles.curatedContent}>
-          <h2 className="text__xxsmReg">Curated playlist</h2>
+    <>
+      <SectionLayout
+        className={HeroStyles.curatedPlaylist}
+        content={
+          <>
+            <div className={HeroStyles.curatedContent}>
+              <h2 className="text__xxsmReg">Curated playlist</h2>
 
-          <article className={HeroStyles.curatedDesc}>
-            <h3 className="text__xxlgBold">R & B Hits</h3>
-            <p className="text__xsmReg">
-              All mine, Lie again, Petty call me everyday, Out of time, No love,
-              Bad habit, and so much more
-            </p>
-          </article>
-          <div className={HeroStyles.curatedDetails}>
-            <ListManager
-              data={Persons}
-              renderItem={(item) => (
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 1024px) 34px, 20px"
-                  style={{ objectFit: "cover" }}
+              <article className={HeroStyles.curatedDesc}>
+                <h3 className="text__xxlgBold">R & B Hits</h3>
+                <p className="text__xsmReg">
+                  All mine, Lie again, Petty call me everyday, Out of time, No
+                  love, Bad habit, and so much more
+                </p>
+              </article>
+              <div className={HeroStyles.curatedDetails}>
+                <ListManager
+                  data={Persons}
+                  renderItem={(item) => (
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 1024px) 34px, 20px"
+                      style={{ objectFit: "cover" }}
+                    />
+                  )}
+                  classNames={{
+                    list: HeroStyles.personsList,
+                    item: HeroStyles.personsItem,
+                  }}
                 />
-              )}
-              classNames={{
-                list: HeroStyles.personsList,
-                item: HeroStyles.personsItem,
-              }}
-            />
-            <div className={HeroStyles.curatedLikes}>
-              <Heart />
-              <span className="text__lgReg">33 Likes</span>
+                <div className={HeroStyles.curatedLikes}>
+                  <Heart />
+                  <span className="text__lgReg">33 Likes</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          className={HeroStyles.curatedImageContainer}
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <Image
-            src={CuratedImage}
-            alt="Playlist Image"
-            fill
-            sizes="(max-width: 1024px) 100%, 100%"
-            style={{ objectFit: "cover", zIndex: "1" }}
+            <div
+              className={HeroStyles.curatedImageContainer}
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <Image
+                src={CuratedImage}
+                alt="Playlist Image"
+                fill
+                sizes="(max-width: 1024px) 100%, 100%"
+                style={{
+                  objectFit: "cover",
+                  zIndex: "1",
+                  objectPosition: "top",
+                }}
+              />
+            </div>
+          </>
+        }
+      />
+      <SectionLayout
+        className={HeroStyles.topChart}
+        title="Top charts"
+        content={
+          <ListManager
+            data={topCharts}
+            renderItem={(item) => (
+              <PlaylistCard
+                title={item.title}
+                creator={item.creator}
+                thumbnail={item.thumbnail}
+              />
+            )}
+            classNames={{
+              list: HeroStyles.topChartList,
+              item: "",
+            }}
           />
-        </div>
-      </div>
-      <div className={HeroStyles.topChart}>
-        <h2 className="text__mdBold header">Top charts</h2>
-        <div className={HeroStyles.topChartList}>
-          <TopChartCard />
-          <TopChartCard />
-          <TopChartCard />
-          <TopChartCard />
-          <TopChartCard />
-          <TopChartCard />
-        </div>
-      </div>
-    </div>
+        }
+      />
+    </>
   );
 };
 
