@@ -27,6 +27,7 @@
 
 .playlistDesc {
   padding-block: 0 25px;
+  max-width: 527px;
 }
 
 .playlistDesc h3 {
