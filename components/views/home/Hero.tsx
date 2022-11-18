@@ -6,7 +6,7 @@ import PlaylistCard from "../PlaylistCard";
 import HeroStyles from "styles/hero.module.css";
 import CuratedImage from "assets/curated_image.png";
 import SectionLayout from "layouts/SectionLayout";
-import { topCharts } from "providers/playlistProvider";
+import { TopCharts } from "providers/playlistProvider";
 
 const Hero = () => {
   return (
@@ -76,14 +76,8 @@ const Hero = () => {
         title="Top charts"
         content={
           <ListManager
-            data={topCharts}
-            renderItem={(item) => (
-              <PlaylistCard
-                title={item.title}
-                creator={item.creator}
-                thumbnail={item.thumbnail}
-              />
-            )}
+            data={TopCharts}
+            renderItem={(item) => <PlaylistCard {...item} />}
             classNames={{
               list: HeroStyles.topChartList,
               item: "",

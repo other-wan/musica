@@ -1,17 +1,28 @@
+import Image from "next/image";
+import Link from "next/link";
 import AlbumCardStyles from "styles/albumCard.module.css";
 
-const AlbumCard = () => {
+interface IAlbumCard {
+  id: string;
+  title: string;
+  artist: string;
+  thumbnail: string;
+}
+
+const AlbumCard = ({ id, title, artist, thumbnail }: IAlbumCard) => {
   return (
-    <div className={AlbumCardStyles.card}>
+    <Link className={AlbumCardStyles.card} href={`/playlists/${id}`}>
       <div className={AlbumCardStyles.imgContainer}>
-        <img
-          src="https://res.cloudinary.com/yheenca/image/upload/v1668005710/musica/top%20charts/top_chart_1_htlvix.jpg"
-          alt=""
+        <Image
+          src={thumbnail}
+          alt="Playlist Image"
+          fill
+          style={{ objectFit: "cover" }}
         />
       </div>
-      <h3 className="text__xxsmReg">Life in a bubble</h3>
-      <span className="text__xxsmReg">The van</span>
-    </div>
+      <h3 className="text__xxsmReg">{title}</h3>
+      <span className="text__xxsmReg">{artist}</span>
+    </Link>
   );
 };
 

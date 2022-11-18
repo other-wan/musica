@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  cursor: pointer;
 }
 
 .imgContainer {
@@ -21,7 +20,8 @@
   overflow: hidden;
 }
 
-.cardDetails h3 {
+.cardDetails a {
+  color: hsla(0, 0%, 100%, 1);
   margin-block: 0 6px;
 }
 
@@ -52,7 +52,7 @@
     column-gap: 14px;
   }
 
-  .cardDetails h3 {
+  .cardDetails a {
     margin-block: 0 4px;
   }
 

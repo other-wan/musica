@@ -1,14 +1,16 @@
 import Favourite from "components/icons/Favourite";
 import Image from "next/image";
+import Link from "next/link";
 import PlaylistCardStyles from "styles/playlistCard.module.css";
 
 interface IPlaylistCard {
+  id: string;
   title: string;
   creator: string;
   thumbnail: string;
 }
 
-const PlaylistCard = ({ title, creator, thumbnail }: IPlaylistCard) => {
+const PlaylistCard = ({ id, title, creator, thumbnail }: IPlaylistCard) => {
   return (
     <div className={PlaylistCardStyles.card}>
       <div className={PlaylistCardStyles.content}>
@@ -21,7 +23,9 @@ const PlaylistCard = ({ title, creator, thumbnail }: IPlaylistCard) => {
           />
         </div>
         <div className={PlaylistCardStyles.cardDetails}>
-          <h3 className="text__smReg">{title}</h3>
+          <Link className="text__smReg" href={`/playlists/${id}`}>
+            {title}
+          </Link>
           <span className="text__xxsmReg">{creator}</span>
           <p className="text__xsmReg">2:34:45</p>
         </div>

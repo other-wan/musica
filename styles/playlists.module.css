@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  padding-block: 0 25px;
 }
 
 .playlistBackground {
@@ -41,11 +42,27 @@
   display: flex;
   align-items: center;
   column-gap: 11px;
-  margin-block: 0 25px;
 }
 
 .songs {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  padding-block: 0 30px;
+}
+
+@media screen and (min-width: 1024px) {
+  .playlistHero {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .playlistImageContainer {
+    width: 284px;
+    height: 289px;
+  }
+
+  .ActionButtons {
+    padding-block: 25px;
+  }
 }

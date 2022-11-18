@@ -1,4 +1,4 @@
-.newRelease {
+.card {
   display: flex;
   overflow-x: auto;
   align-items: center;
@@ -8,11 +8,11 @@
   scroll-behavior: smooth;
 }
 
-.newRelease::-webkit-scrollbar {
+.card::-webkit-scrollbar {
   display: none;
 }
 
-.newRelease {
+.card {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
