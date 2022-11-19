@@ -1,21 +1,26 @@
 import Image from "next/image";
 import classNames from "classnames";
 import SongCardStyles from "styles/songCard.module.css";
+import { ISong } from "utils/types";
 
-interface ISongCard {
-  title: string;
-  artist: string;
+interface ISongCard extends ISong {
   album: string;
-  runtime: string;
-  thumbnail: string;
 }
 
-const SongCard = ({ title, artist, album, runtime, thumbnail }: ISongCard) => {
+const SongCard = ({
+  id,
+  title,
+  album,
+  artist,
+  cover,
+  audio,
+  duration,
+}: ISongCard) => {
   return (
     <div className={SongCardStyles.card}>
       <div className={SongCardStyles.imgContainer}>
         <Image
-          src={thumbnail}
+          src={cover}
           alt="Playlist Image"
           fill
           style={{ objectFit: "cover" }}
@@ -31,7 +36,7 @@ const SongCard = ({ title, artist, album, runtime, thumbnail }: ISongCard) => {
         :
       </div>
       <span className={classNames("text__xxsmReg", SongCardStyles.runtime)}>
-        {runtime}
+        {duration}
       </span>
     </div>
   );

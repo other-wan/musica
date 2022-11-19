@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 import Collection from "components/icons/Collection";
 import Like from "components/icons/Like";
@@ -10,17 +11,12 @@ import PlaylistStyles from "styles/playlists.module.css";
 import SongCard from "components/views/SongCard";
 import ListManager from "components/ListManager";
 import { Albums, Songs, TopCharts } from "providers/playlistProvider";
-import { ParsedUrlQuery } from "querystring";
+import { IPlaylist } from "utils/types";
 
-interface IPlaylist {
-  title: string;
-  thumbnail: string;
-}
-
-const Playlist = ({ title, thumbnail }: IPlaylist) => {
+const Playlist = ({ id, title, cover, info, files }: IPlaylist) => {
   useEffect(() => {
     // 61.48%
-    document.body.style.backgroundImage = `linear-gradient(180deg, hsla(200, 9%, 13%, 0.8) 0%, hsla(200, 9%, 13%, 1) 62%), url(${thumbnail})`;
+    document.body.style.backgroundImage = `linear-gradient(180deg, hsla(200, 9%, 13%, 0.8) 0%, hsla(200, 9%, 13%, 1) 62%), url(${cover})`;
     document.body.classList.add(PlaylistStyles.playlistBackground);
     document
       .querySelector("#header")
@@ -40,16 +36,13 @@ const Playlist = ({ title, thumbnail }: IPlaylist) => {
     <>
       <div className={PlaylistStyles.playlistHero}>
         <div className={PlaylistStyles.playlistImageContainer}>
-          <Image src={thumbnail} alt="Hello" fill />
+          <Image src={cover} alt="Hello" fill />
         </div>
         <div className={PlaylistStyles.playlistContent}>
           <div className={PlaylistStyles.playlistDesc}>
             <h3 className="text__xxlgBold">{title}</h3>
-            <p className="text__xsmReg">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque, saepe recusandae.
-            </p>
-            <p>64 songs ~ 16 hrs+</p>
+            <p className="text__xsmReg">{info}</p>
+            <p>{`${files.length} songs`}</p>
           </div>
           <div className={PlaylistStyles.ActionButtons}>
             <ChartButton svg={<Play />} label={"Play all"} />
@@ -59,8 +52,8 @@ const Playlist = ({ title, thumbnail }: IPlaylist) => {
         </div>
       </div>
       <ListManager
-        data={Songs}
-        renderItem={(item) => <SongCard {...item} />}
+        data={files}
+        renderItem={(item) => <SongCard album={title} {...item} />}
         classNames={{
           list: PlaylistStyles.songs,
           item: "",
@@ -71,29 +64,18 @@ const Playlist = ({ title, thumbnail }: IPlaylist) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const topCharts = TopCharts.map((_topchart) => {
-    return {
-      id: _topchart.id,
-      title: _topchart.title,
-      thumbnail: _topchart.thumbnail,
-    };
-  });
+  const res = await fetch("https://musica-api.up.railway.app/playlist");
+  const topCharts: IPlaylist[] = await res.json();
 
-  const albums = Albums.map((_album) => {
-    return {
-      id: _album.id,
-      title: _album.title,
-      thumbnail: _album.thumbnail,
-    };
-  });
-
-  const paths = topCharts.concat(albums).map((_playlist) => {
+  const paths = topCharts.map((_charts) => {
     return {
       params: {
-        id: _playlist.id,
+        id: _charts.id,
       },
     };
   });
+
+  console.log(paths);
 
   return {
     paths,
@@ -106,28 +88,15 @@ interface IParams extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const res = await fetch("https://musica-api.up.railway.app/playlist");
+  const topCharts: IPlaylist[] = await res.json();
+
   const { id } = context.params as IParams;
+  const chart = topCharts.find((_chart) => _chart.id === id);
 
-  const topCharts = TopCharts.map((_topchart) => {
-    return {
-      id: _topchart.id,
-      title: _topchart.title,
-      thumbnail: _topchart.thumbnail,
-    };
-  });
-
-  const albums = Albums.map((_album) => {
-    return {
-      id: _album.id,
-      title: _album.title,
-      thumbnail: _album.thumbnail,
-    };
-  });
-
-  const chart = topCharts
-    .concat(albums)
-    .find((_playlist) => _playlist.id === id);
-  return { props: chart! };
+  return {
+    props: chart!,
+  };
 };
 
 export default Playlist;

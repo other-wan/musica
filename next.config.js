@@ -10,6 +10,12 @@ const nextConfig = {
         port: "",
         pathname: "/yheenca/image/upload/**",
       },
+      {
+        protocol: "https",
+        hostname: "musica-api.up.railway.app",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

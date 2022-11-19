@@ -2,12 +2,17 @@ import classNames from "classnames";
 import ListManager from "components/ListManager";
 import { Albums } from "providers/playlistProvider";
 import AlbumListStyle from "styles/albumList.module.css";
+import { ISong } from "utils/types";
 import AlbumCard from "../AlbumCard";
 
-const AlbumList = () => {
+interface IAlbums {
+  albums: ISong[];
+}
+
+const AlbumList = ({ albums }: IAlbums) => {
   return (
     <ListManager
-      data={Albums}
+      data={albums}
       renderItem={(item) => <AlbumCard {...item} />}
       classNames={{
         list: AlbumListStyle.card,

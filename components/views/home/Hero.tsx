@@ -2,13 +2,13 @@ import Heart from "components/icons/Heart";
 import ListManager from "components/ListManager";
 import Image from "next/image";
 import { Persons } from "providers/personList";
-import PlaylistCard from "../PlaylistCard";
 import HeroStyles from "styles/hero.module.css";
 import CuratedImage from "assets/curated_image.png";
 import SectionLayout from "layouts/SectionLayout";
-import { TopCharts } from "providers/playlistProvider";
+import { ITopCharts } from "utils/types";
+import TopCharts from "./TopCharts";
 
-const Hero = () => {
+const Hero = ({ topCharts }: ITopCharts) => {
   return (
     <>
       <SectionLayout
@@ -71,20 +71,7 @@ const Hero = () => {
           </>
         }
       />
-      <SectionLayout
-        className={HeroStyles.topChart}
-        title="Top charts"
-        content={
-          <ListManager
-            data={TopCharts}
-            renderItem={(item) => <PlaylistCard {...item} />}
-            classNames={{
-              list: HeroStyles.topChartList,
-              item: "",
-            }}
-          />
-        }
-      />
+      <TopCharts topCharts={topCharts} />
     </>
   );
 };

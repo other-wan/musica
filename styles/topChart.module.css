@@ -1,0 +1,41 @@
+.topChart {
+  padding-block: 0 !important;
+}
+
+.topChart h2 {
+  margin-block: 0 16px;
+}
+
+.topChartList {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  -webkit-gap: 17px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.topChartList::-webkit-scrollbar {
+  display: none;
+}
+
+.topChartList {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .topChart {
+    flex: 3;
+  }
+
+  .topChartList {
+    height: calc(100% - 40px);
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+}
