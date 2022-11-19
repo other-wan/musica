@@ -3,7 +3,7 @@ import ListManager from "components/ListManager";
 import { Albums } from "providers/playlistProvider";
 import AlbumListStyle from "styles/albumList.module.css";
 import { ISong } from "utils/types";
-import AlbumCard from "../AlbumCard";
+import AlbumCard from "../playlist/AlbumCard";
 
 interface IAlbums {
   albums: ISong[];

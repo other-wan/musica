@@ -6,11 +6,10 @@ import { ParsedUrlQuery } from "querystring";
 import Collection from "components/icons/Collection";
 import Like from "components/icons/Like";
 import Play from "components/icons/Play";
-import ChartButton from "components/views/charts/ChartButton";
+import ActionButton from "components/views/ActionButton";
 import PlaylistStyles from "styles/playlists.module.css";
 import SongCard from "components/views/SongCard";
 import ListManager from "components/ListManager";
-import { Albums, Songs, TopCharts } from "providers/playlistProvider";
 import { IPlaylist } from "utils/types";
 
 const Playlist = ({ id, title, cover, info, files }: IPlaylist) => {
@@ -45,9 +44,9 @@ const Playlist = ({ id, title, cover, info, files }: IPlaylist) => {
             <p>{`${files.length} songs`}</p>
           </div>
           <div className={PlaylistStyles.ActionButtons}>
-            <ChartButton svg={<Play />} label={"Play all"} />
-            <ChartButton svg={<Collection />} label={"Add to collection"} />
-            <ChartButton svg={<Like />} label={"Like"} />
+            <ActionButton svg={<Play />} label={"Play all"} />
+            <ActionButton svg={<Collection />} label={"Add to collection"} />
+            <ActionButton svg={<Like />} label={"Like"} />
           </div>
         </div>
       </div>

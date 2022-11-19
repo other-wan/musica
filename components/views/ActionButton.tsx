@@ -1,12 +1,12 @@
 import { FunctionComponent, ReactNode } from "react";
 import ChartButtonStyles from "styles/chartButton.module.css";
 
-interface IChartButton {
+interface IActionButton {
   svg: ReactNode;
   label?: string;
 }
 
-const ChartButton: FunctionComponent<IChartButton> = ({ svg, label }) => {
+const ActionButton: FunctionComponent<IActionButton> = ({ svg, label }) => {
   return (
     <button className={ChartButtonStyles.chartButton}>
       {svg}
@@ -19,4 +19,4 @@ const ChartButton: FunctionComponent<IChartButton> = ({ svg, label }) => {
   );
 };
 
-export default ChartButton;
+export default ActionButton;
